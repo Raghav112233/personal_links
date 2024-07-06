@@ -3,85 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+    <title>Home Page</title>
     <style>
         *{
             margin: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        body{
-            margin: 0;
-            overflow-y: hidden;
-            background-color: rgb(37, 37, 37);
+            font-family: "Noto Sans JP", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
             color: whitesmoke;
         }
-        .body-container{
-            width: 100dvw;
-            height: 100dvh;
-            margin-top: 50px;
+        body{
+            background-color: #07192e;
+        }
+        .timebox{
+            font-size: 78px;
+            font-weight: 400;
+            text-align: end;
+            padding-right: 50px;
+            padding-top: 10px;
+        }
+        .logo{
+            width: 100px;
+            position: relative;
+            bottom: 15px;
+            left: 30px;
+        }
+        .searchbox{
             display: flex;
-            flex-direction: column;
             align-items: center;
+            justify-content: center;
+            padding-top: 70px;
+        }
+        .search{
+            width: 450px;
+            height: 50px;
+            font-size: 15px;
+            padding-left: 60px;
+            background-color: #10325b;
+            border: 1px solid #10325b;
+            border-radius: 30px;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+        }
+        input:focus{
+            outline: none;
+        }
+        .linkarea{
+            width: max-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .linkcatbox{
+            background-color: #0b2544;
+            border: 1px solid #0b2544;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+            width: max-content;
             gap: 50px;
+            box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
         }
-        a{
-            display: inline-block;
-            border-radius: 50%;
+        .link-cat{
+            background-color: #10325b;
+            border: 1px solid #10325b;
+            border-radius: 20px;
+            width: 70px;
+            padding: 5px;
             text-align: center;
-            padding-top: 50px;
-            width: 120px;
-            height: 120px;
-            background-color: rgb(125, 125, 125);
-            color: rgb(245, 245, 245);
+            vertical-align: middle;
+            cursor: pointer;
+        }
+        .linkbox{
+            display: none;
+            height: max-content;
+            width: 450px;
+            margin-top: 5px;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #0b2544;
+            border: 1px solid #0b2544;
+            border-radius: 30px;
+        }
+        .linkbox_content_box{
+            width: 100%;
+            height: 100%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .link{
+            width: 45%;
+            height: max-content;
+            padding-left: 20px;
             text-decoration: none;
-            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            padding-top: 3px;
+            padding-bottom: 3px;
         }
-        .text-align-center{
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .link:hover{
+            background-color: #10325b;
+            border-radius: 20px;
         }
-        .links{
-            display: flex;
-            gap: 20px;
+        .calendar_btn{
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+            margin-left: 10px;
+            width: max-content;
         }
+        #calendar{
+            position: fixed;
+            top: 50px;
+            transition: all 0.5s;
+        }
+        .displayoff{
+            left: -500px !important;
+        }
+        .displayon{
+            left: 0px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="body-container">
-        <div class="text-align-center">
-            <h1>Personal Misc</h1>
-            <div class="links">
-                <a href="https://www.youtube.com/" target="_blank">Youtube</a>
-                <a href="https://www.reddit.com/" target="_blank">Reddit</a>
-                <a href="https://www.instagram.com/" target="_blank">Instagram</a>
-                <a href="https://twitter.com/home" target="_blank">Twitter</a>
-                <a href="https://movierr.online/" target="_blank">Movierr</a>
-                <a href="https://www.twitch.tv/" target="_blank">Twitch</a>
-                <a href="https://streamsora.live/en" target="_blank">StreamSora</a>
-                <a href="https://steamunlocked.net/" target="_blank">SteamUnlocked</a>
-                <a href="https://repack-games.com/" target="_blank">Repack-Games</a>
-                <a href="https://fitgirl-repacks.site/" target="_blank">FitGirl-Repacks</a>
-            </div>
-        </div>
-        <div class="text-align-center">
-            <h1>University</h1>
-            <div class="links">
-                <a href="https://vtop.vit.ac.in/vtop/login" target="_blank">VTOP</a>
-                <a href="https://mail.google.com/mail/u/1/#inbox" target="_blank">VIT Mail</a>
-                <a href="https://moovitol.vit.ac.in/login/?lang=en" target="_blank">VIT Moovitol</a>
-                <a href="https://moovit.vit.ac.in/login/?lang=en" target="_blank">VIT Moovit</a>
-            </div>
-        </div>
-        <div class="text-align-center">
-            <h1>Personal Work</h1>
-            <div class="links">
-                <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Raghav Mail</a>
-                <a href="https://drive.google.com/drive/my-drive" target="_blank">Raghav Drive</a>
-            </div>
-        </div>
+    <p onclick="toggle_calendar()" class="calendar_btn" >Calendar</p>
+    <iframe id="calendar" class="displayon displayoff" src="https://calendar.google.com/calendar/embed?height=500&wkst=1&ctz=Asia%2FKolkata&bgcolor=%23ffffff&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=cmFnaGF2YmFiYmFyMTIzNDVAZ21haWwuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border-width:0" width="500" height="500" frameborder="0" scrolling="no"></iframe>
+    <div class="timebox">
+        <p id="time">00:00</p>
     </div>
+    <div class="searchbox">
+        <img src="raghav_logo_pfp.png" alt="" class="logo">
+        <input type="text" class="search" id="searchbar" placeholder="Search with Google or enter address">
+    </div>
+    <div class="linkarea" onmouseleave="closelinkbox()">
+        <div class="linkcatbox">
+            <p class="link-cat" onmouseover="misc_hover()">Misc</p>
+            <p class="link-cat" onmouseover="uni_hover()">Uni</p>
+            <p class="link-cat" onmouseover="work_hover()">Work</p>
+        </div>
+        <div class="linkbox" id="linkbox"></div>
+    </div>
+    <script>
+
+        let misc_html = `
+            <div class="linkbox_content_box">
+                <a class="link" href="https://www.youtube.com/" target="_blank">Youtube</a>
+                <a class="link" href="https://www.reddit.com/" target="_blank">Reddit</a>
+                <a class="link" href="https://www.instagram.com/" target="_blank">Instagram</a>
+                <a class="link" href="https://twitter.com/home" target="_blank">Twitter</a>
+                <a class="link" href="https://movierr.online/" target="_blank">Movierr</a>
+                <a class="link" href="https://www.twitch.tv/" target="_blank">Twitch</a>
+                <a class="link" href="https://streamsora.live/en" target="_blank">StreamSora</a>
+                <a class="link" href="https://steamunlocked.net/" target="_blank">SteamUnlocked</a>
+                <a class="link" href="https://repack-games.com/" target="_blank">Repack-Games</a>
+                <a class="link" href="https://fitgirl-repacks.site/" target="_blank">FitGirl-Repacks</a>
+            </div>
+        `;
+
+        let uni_html = `
+            <div class="linkbox_content_box">
+                <a class="link" href="https://vtop.vit.ac.in/vtop/login" target="_blank">VTOP</a>
+                <a class="link" href="https://mail.google.com/mail/u/1/#inbox" target="_blank">VIT Mail</a>
+                <a class="link" href="https://moovitol.vit.ac.in/login/?lang=en" target="_blank">VIT Moovitol</a>
+                <a class="link" href="https://moovit.vit.ac.in/login/?lang=en" target="_blank">VIT Moovit</a>
+            </div>
+        `;
+
+        let work_html = `
+            <div class="linkbox_content_box">
+                <a class="link" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Raghav Mail</a>
+                <a class="link" href="https://drive.google.com/drive/my-drive" target="_blank">Raghav Drive</a>
+            </div>
+        `;
+
+        let time = document.getElementById("time");
+        let str = "";
+        setInterval(() => {
+            let d = new Date();
+            let hrs = d.getHours().toString();
+            let mins = d.getMinutes().toString();
+            if (hrs.length < 2){
+                hrs = "0" + hrs;
+            }
+            if (mins.length < 2){
+                mins = "0" + mins;
+            }
+            str = hrs + ":" + mins;
+            time.innerHTML = str;
+        }, 1000)
+
+        let linkbox = document.getElementById("linkbox");
+        function misc_hover(){
+            linkbox.style.display = "block";
+            linkbox.innerHTML = misc_html;
+        }
+        function uni_hover(){
+            linkbox.style.display = "block";
+            linkbox.innerHTML = uni_html;
+        }
+        function work_hover(){
+            linkbox.style.display = "block";
+            linkbox.innerHTML = work_html;
+        }
+        function closelinkbox(){
+            linkbox.style.display = "none";
+        }
+
+        let calendar = document.getElementById("calendar");
+        function toggle_calendar(){
+            console.log("hello");
+            calendar.classList.toggle("displayoff");
+        }
+
+        let searchbar = document.getElementById("searchbar");
+        searchbar.addEventListener("keydown", function (e){
+            if (e.code === "Enter"){
+                search();
+            }
+        })
+
+        function search(){
+            let searchbar_val = document.getElementById("searchbar").value;
+            window.location.href = "https://www.google.com/search?q=" + searchbar_val + "";
+        }
+
+    </script>
 </body>
 </html>
