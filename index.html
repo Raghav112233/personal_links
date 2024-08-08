@@ -133,6 +133,15 @@
         .displayon{
             left: 0px;
         }
+        .quotebox{
+            font-style: italic;
+            font-weight: 200;
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
 
     </style>
 </head>
@@ -154,7 +163,23 @@
         </div>
         <div class="linkbox" id="linkbox"></div>
     </div>
+    <div class="quotebox">
+        <p id="quote">Sample quote goes here...</p>
+    </div>
     <script>
+
+        quote = document.getElementById("quote");
+
+        fetch('curl -s --compressed https://raw.githubusercontent.com/skolakoda/programming-quotes-api/master/Data/quotes.json | jq ".[$((RANDOM%501))]"')
+            .then((response) => response.json())
+            .then((data) => {
+                quote.innerHTML = data;
+                console.log(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
 
         let misc_html = `
             <div class="linkbox_content_box">
@@ -162,6 +187,7 @@
                 <a class="link" href="https://www.reddit.com/" target="_blank">Reddit</a>
                 <a class="link" href="https://www.instagram.com/" target="_blank">Instagram</a>
                 <a class="link" href="https://twitter.com/home" target="_blank">Twitter</a>
+                <a class="link" href="https://chatgpt.com/" target="_blank">ChatGPT</a>
                 <a class="link" href="https://movierr.online/" target="_blank">Movierr</a>
                 <a class="link" href="https://www.twitch.tv/" target="_blank">Twitch</a>
                 <a class="link" href="https://streamsora.live/en" target="_blank">StreamSora</a>
@@ -184,6 +210,7 @@
             <div class="linkbox_content_box">
                 <a class="link" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Raghav Mail</a>
                 <a class="link" href="https://drive.google.com/drive/my-drive" target="_blank">Raghav Drive</a>
+                <a class="link" href="https://raghav112233.github.io/" target="_blank">Raghav Portfolio</a>
             </div>
         `;
 
