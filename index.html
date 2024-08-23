@@ -245,13 +245,25 @@
         })
 
         function search(){
-            try {
-                let searchbar_val = new URL(document.getElementById("searchbar").value);
+            console.log("inside search");
+            const searchbar_val = document.getElementById("searchbar").value.trim();
+            console.log(searchbar_val);
+            const urlPattern = new RegExp('^(https?:\\/\\/)?' +
+                '((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|' +
+                '((\\d{1,3}\\.){3}\\d{1,3}))' +
+                '(\\:\\d+)?(\\/[-a-zA-Z\\d%@_.~+&:]*)*' +
+                '(\\?[;&a-zA-Z\\d%@_.,~+&:=-]*)?' +
+                '(\\#[-a-zA-Z\\d_]*)?$','i');
+
+            if (urlPattern.test(searchbar_val)) {
+                if (!/^https?:\/\//i.test(searchbar_val)) {
+                    searchbar_val = 'http://' + searchbar_val;
+                }
                 window.location.href = searchbar_val;
+            } else {
+                const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(searchbar_val);
+                window.location.href = searchUrl;
             }
-            catch (err) {
-                window.location.href = "https://www.google.com/search?q=" + searchbar_val + "";
-            }  
         }
 
     </script>
