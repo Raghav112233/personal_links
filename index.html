@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    <title>Home Page</title>
+    <title>Home</title>
     <style>
         *{
             margin: 0;
@@ -165,49 +165,36 @@
     </div>
     <script>
 
-        quote = document.getElementById("quote");
-
-        fetch('curl -s --compressed https://raw.githubusercontent.com/skolakoda/programming-quotes-api/master/Data/quotes.json | jq ".[$((RANDOM%501))]"')
-            .then((response) => response.json())
-            .then((data) => {
-                quote.innerHTML = data;
-                console.log(data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-
-
         let misc_html = `
             <div class="linkbox_content_box">
-                <a class="link" href="https://www.youtube.com/" target="_blank">Youtube</a>
-                <a class="link" href="https://www.reddit.com/" target="_blank">Reddit</a>
-                <a class="link" href="https://www.instagram.com/" target="_blank">Instagram</a>
-                <a class="link" href="https://chatgpt.com/" target="_blank">ChatGPT</a>
-                <a class="link" href="https://movierr.online/" target="_blank">Movierr</a>
-                <a class="link" href="https://www.twitch.tv/" target="_blank">Twitch</a>
-                <a class="link" href="https://streamsora.live/en" target="_blank">StreamSora</a>
-                <a class="link" href="https://steamunlocked.net/" target="_blank">SteamUnlocked</a>
-                <a class="link" href="https://repack-games.com/" target="_blank">Repack-Games</a>
-                <a class="link" href="https://fitgirl-repacks.site/" target="_blank">FitGirl-Repacks</a>
+                <a class="link" href="https://www.youtube.com/">Youtube</a>
+                <a class="link" href="https://www.reddit.com/">Reddit</a>
+                <a class="link" href="https://mail.google.com/mail/u/0/#inbox">Mail</a>
+                <a class="link" href="https://drive.google.com/drive/my-drive">Drive</a>
+                <a class="link" href="https://chatgpt.com/">ChatGPT</a>
+                <a class="link" href="https://movierr.online/">Movierr</a>
+                <a class="link" href="https://streamsora.live/en">StreamSora</a>
+                <a class="link" href="https://steamunlocked.net/">SteamUnlocked</a>
+                <a class="link" href="https://repack-games.com/">Repack-Games</a>
+                <a class="link" href="https://fitgirl-repacks.site/">FitGirl-Repacks</a>
             </div>
         `;
 
         let uni_html = `
             <div class="linkbox_content_box">
-                <a class="link" href="https://vtop.vit.ac.in/vtop/login" target="_blank">VTOP</a>
-                <a class="link" href="https://mail.google.com/mail/u/1/#inbox" target="_blank">VIT Mail</a>
-                <a class="link" href="https://moovitol.vit.ac.in/login/?lang=en" target="_blank">VIT Moovitol</a>
-                <a class="link" href="https://moovit.vit.ac.in/login/?lang=en" target="_blank">VIT Moovit</a>
+                <a class="link" href="https://vtop.vit.ac.in/vtop/login">VTOP</a>
+                <a class="link" href="https://mail.google.com/mail/u/1/#inbox">VIT Mail</a>
+                <a class="link" href="https://moovitol.vit.ac.in/login/?lang=en">VIT Moovitol</a>
+                <a class="link" href="https://moovit.vit.ac.in/login/?lang=en">VIT Moovit</a>
             </div>
         `;
 
         let work_html = `
             <div class="linkbox_content_box">
-                <a class="link" href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Raghav Mail</a>
-                <a class="link" href="https://drive.google.com/drive/my-drive" target="_blank">Raghav Drive</a>
-                <a class="link" href="https://teams.microsoft.com/v2/" target="_blank">Teams</a>
-                <a class="link" href="https://raghav112233.github.io/" target="_blank">Raghav Portfolio</a>
+                <a class="link" href="https://drive.google.com/file/d/15DyepTvXTSwMiQ12kIqrLh4oSF3N1dhb/view?usp=sharing">Resume</a>
+                <a class="link" href="https://docs.google.com/forms/u/0/?tgif=d&ec=asw-forms-globalnav-goto">Forms</a>
+                <a class="link" href="https://raghav112233.github.io/">Raghav Portfolio</a>
+                <a class="link" href="https://www.ilovepdf.com/compress_pdf">Compress Pdf</a>
             </div>
         `;
 
@@ -258,8 +245,13 @@
         })
 
         function search(){
-            let searchbar_val = document.getElementById("searchbar").value;
-            window.location.href = "https://www.google.com/search?q=" + searchbar_val + "";
+            try {
+                let searchbar_val = new URL(document.getElementById("searchbar").value);
+                window.location.href = searchbar_val;
+            }
+            catch (err) {
+                window.location.href = "https://www.google.com/search?q=" + searchbar_val + "";
+            }  
         }
 
     </script>
