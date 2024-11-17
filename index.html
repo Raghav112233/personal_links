@@ -101,8 +101,8 @@
         .linkbox_content_box{
             width: 100%;
             height: 100%;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding-top: 15px;
+            padding-bottom: 15px;
             display: flex;
             gap: 5px;
             align-items: center;
@@ -116,10 +116,12 @@
             text-decoration: none;
             padding-top: 3px;
             padding-bottom: 3px;
+            transition: scale 0.3s;
         }
         .link:hover{
             background-color: #10325b;
             border-radius: 20px;
+            scale: 1.05;
         }
         .calendar_btn{
             cursor: pointer;
@@ -173,11 +175,11 @@
 
         let misc_html = `
             <div class="linkbox_content_box">
-                <a class="link" href="https://www.youtube.com/">Youtube</a>
+                <a class="link" href="https://www.youtube.com/">Youtube (Y)</a>
                 <a class="link" href="https://www.reddit.com/">Reddit</a>
-                <a class="link" href="https://mail.google.com/mail/u/0/#inbox">Mail</a>
+                <a class="link" href="https://mail.google.com/mail/u/0/#inbox">Mail (R)</a>
                 <a class="link" href="https://drive.google.com/drive/my-drive">Drive</a>
-                <a class="link" href="https://chatgpt.com/">ChatGPT</a>
+                <a class="link" href="https://chatgpt.com/">ChatGPT (G)</a>
                 <a class="link" href="https://movierr.online/">Movierr</a>
                 <a class="link" href="https://en.myflixer-official.lol/movies">MyFlixer</a>
                 <a class="link" href="https://steamunlocked.net/">SteamUnlocked</a>
@@ -188,8 +190,8 @@
 
         let uni_html = `
             <div class="linkbox_content_box">
-                <a class="link" href="https://vtop.vit.ac.in/vtop/login">VTOP</a>
-                <a class="link" href="https://mail.google.com/mail/u/1/#inbox">VIT Mail</a>
+                <a class="link" href="https://vtop.vit.ac.in/vtop/login">VTOP (V)</a>
+                <a class="link" href="https://mail.google.com/mail/u/1/#inbox">VIT Mail (M)</a>
                 <a class="link" href="https://moovitol.vit.ac.in/login/?lang=en">VIT Moovitol</a>
                 <a class="link" href="https://moovit.vit.ac.in/login/?lang=en">VIT Moovit</a>
             </div>
@@ -239,7 +241,6 @@
 
         let calendar = document.getElementById("calendar");
         function toggle_calendar(){
-            console.log("hello");
             calendar.classList.toggle("displayoff");
         }
 
@@ -251,9 +252,7 @@
         })
 
         function search(){
-            console.log("inside search");
             const searchbar_val = document.getElementById("searchbar").value.trim();
-            console.log(searchbar_val);
             const urlPattern = new RegExp('^(https?:\\/\\/)?' +
                 '((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|' +
                 '((\\d{1,3}\\.){3}\\d{1,3}))' +
@@ -271,6 +270,21 @@
                 window.location.href = searchUrl;
             }
         }
+
+        function search_direct(key, url) {
+            document.addEventListener("keydown", function (event) {
+                if (event.shiftKey && event.key.toLowerCase() === key.toLowerCase()) {
+                    event.preventDefault();
+                    window.location.href = url;
+                }
+            });
+        }
+
+        search_direct('y', 'https://www.youtube.com/');
+        search_direct('r', 'https://mail.google.com/mail/u/0/#inbox');
+        search_direct('g', 'https://chatgpt.com/');
+        search_direct('v', 'https://vtop.vit.ac.in/vtop/login');
+        search_direct('m', 'https://mail.google.com/mail/u/1/#inbox');
 
     </script>
 </body>
