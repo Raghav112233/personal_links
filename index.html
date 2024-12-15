@@ -267,7 +267,7 @@
                 window.location.href = searchbar_val;
             }
             else if (searchbar_val.startsWith('y ')){
-                const searchUrl = '"https://www.youtube.com/results?search_query="' + searchbar_val.trim().replace(/\s+/g, "+");
+                const searchUrl = 'https://www.youtube.com/results?search_query=' + searchbar_val.trim().replace(/\s+/g, "+");
                 window.location.href = searchUrl;
             }
             else {
