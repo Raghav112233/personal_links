@@ -179,7 +179,7 @@
                 <a class="link" href="https://www.reddit.com/">Reddit</a>
                 <a class="link" href="https://mail.google.com/mail/u/0/#inbox">Mail (R)</a>
                 <a class="link" href="https://drive.google.com/drive/my-drive">Drive</a>
-                <a class="link" href="https://chatgpt.com/">ChatGPT (G)</a>
+                <a class="link" href="https://chatgpt.com/">ChatGPT (C)</a>
                 <a class="link" href="https://movierr.online/">Movierr</a>
                 <a class="link" href="https://en.myflixer-official.lol/movies">MyFlixer</a>
                 <a class="link" href="https://steamunlocked.net/">SteamUnlocked</a>
@@ -265,7 +265,12 @@
                     searchbar_val = 'http://' + searchbar_val;
                 }
                 window.location.href = searchbar_val;
-            } else {
+            }
+            else if (searchbar_val.startsWith('y ')){
+                const searchUrl = '"https://www.youtube.com/results?search_query="' + searchbar_val.trim().replace(/\s+/g, "+");
+                window.location.href = searchUrl;
+            }
+            else {
                 const searchUrl = 'https://www.google.com/search?q=' + encodeURIComponent(searchbar_val);
                 window.location.href = searchUrl;
             }
@@ -282,10 +287,12 @@
 
         search_direct('y', 'https://www.youtube.com/');
         search_direct('r', 'https://mail.google.com/mail/u/0/#inbox');
-        search_direct('g', 'https://chatgpt.com/');
+        search_direct('c', 'https://chatgpt.com/');
         search_direct('v', 'https://vtop.vit.ac.in/vtop/login');
         search_direct('m', 'https://mail.google.com/mail/u/1/#inbox');
         search_direct('t', 'https://www.twitch.tv/');
+        search_direct('l', 'https://www.linkedin.com/in/raghav-babbar-755a66244/');
+        search_direct('g', 'https://github.com/Raghav112233');
 
     </script>
 </body>
