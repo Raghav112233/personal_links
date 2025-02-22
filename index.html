@@ -174,7 +174,9 @@
     </div>
     <script>
 
-        document.getElementById('searchbar').focus();
+        setTimeoutsetTimeout(function() {
+            document.getElementById('searchbar').focus();
+        }, 100);
 
         let misc_html = `
             <div class="linkbox_content_box">
