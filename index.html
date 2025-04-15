@@ -17,7 +17,11 @@
             color: whitesmoke;
         }
         body{
-            background-color: #07192e;
+            height: 100dvh;
+            overflow-y: hidden;
+            background-image: url('cerulean_coast.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         .back_img{
             position: fixed;
@@ -26,36 +30,45 @@
             z-index: -999;
         }
         .timebox{
-            font-size: 78px;
+            font-size: 86px;
+            font-family: "Noto Sans JP", sans-serif;
+            font-optical-sizing: auto;
             font-weight: 400;
             text-align: end;
-            padding-right: 50px;
             padding-top: 10px;
+            padding-right: 40px;
         }
         .logo{
             width: 100px;
             position: relative;
             bottom: 15px;
             left: 30px;
+            position: relative;
+            z-index: 1000;
         }
         .searchbox{
             display: flex;
             align-items: center;
             justify-content: center;
-            padding-top: 70px;
+            padding-top: 15px;
         }
         .search{
             width: 450px;
             height: 50px;
             font-size: 15px;
             padding-left: 60px;
-            background-color: #10325b;
-            border: 1px solid #10325b;
+            background-color: transparent;
+            border: 1px solid whitesmoke;
+            backdrop-filter: blur(10px);
             border-radius: 30px;
             box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
         }
         input:focus{
             outline: none;
+        }
+        .search::placeholder {
+            color: whitesmoke; /* or any color like #aaa, red, etc. */
+            opacity: 1;   /* Optional: makes sure the placeholder isn't faded */
         }
         .linkarea{
             width: max-content;
@@ -63,8 +76,9 @@
             margin-right: auto;
         }
         .linkcatbox{
-            background-color: #0b2544;
-            border: 1px solid #0b2544;
+            background-color: transparent;
+            border: 1px solid whitesmoke;
+            backdrop-filter: blur(10px);
             border-radius: 30px;
             display: flex;
             align-items: center;
@@ -78,14 +92,22 @@
             box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
         }
         .link-cat{
-            background-color: #10325b;
-            border: 1px solid #10325b;
+            background-color: transparent;
+            border: 1px solid whitesmoke;
+            backdrop-filter: blur(10px);
             border-radius: 20px;
             width: 70px;
             padding: 5px;
             text-align: center;
             vertical-align: middle;
             cursor: pointer;
+            transition: scale 0.3s;
+        }
+        .link-cat:hover{
+            background-color: transparent;
+            border: 1px solid whitesmoke;
+            border-radius: 20px;
+            scale: 1.1;
         }
         .linkbox{
             display: none;
@@ -94,8 +116,9 @@
             margin-top: 5px;
             margin-left: auto;
             margin-right: auto;
-            background-color: #0b2544;
-            border: 1px solid #0b2544;
+            background-color: transparent;
+            border: 1px solid whitesmoke;
+            backdrop-filter: blur(10px);
             border-radius: 30px;
         }
         .linkbox_content_box{
@@ -119,9 +142,11 @@
             transition: scale 0.3s;
         }
         .link:hover{
-            background-color: #10325b;
+            background-color: transparent;
+            border: 1px solid whitesmoke;
             border-radius: 20px;
             scale: 1.05;
+            padding-bottom: 1.5px;
         }
         .calendar_btn{
             cursor: pointer;
@@ -136,8 +161,14 @@
             transition: all 0.5s;
             z-index: 99999;
         }
+        #greeting{
+            font-size: 30px;
+            font-optical-sizing: auto;
+            text-align: end;
+            padding-right: 40px;
+        }
         .displayoff{
-            left: -500px !important;
+            left: -700px !important;
         }
         .displayon{
             left: 0px;
@@ -156,9 +187,12 @@
 </head>
 <body>
     <p onclick="toggle_calendar()" class="calendar_btn" >Calendar</p>
-    <iframe id="calendar" class="displayon displayoff" src="https://calendar.google.com/calendar/embed?height=500&wkst=1&ctz=Asia%2FKolkata&bgcolor=%23ffffff&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=cmFnaGF2YmFiYmFyMTIzNDVAZ21haWwuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border-width:0" width="500" height="500" frameborder="0" scrolling="no"></iframe>
+    <iframe id="calendar" class="displayon displayoff" src="https://calendar.google.com/calendar/embed?height=700&wkst=1&ctz=Asia%2FKolkata&bgcolor=%23ffffff&showTitle=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&src=cmFnaGF2YmFiYmFyMTIzNDVAZ21haWwuY29t&src=YWRkcmVzc2Jvb2sjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border-width:0" width="700" height="700" frameborder="0" scrolling="no"></iframe>
     <div class="timebox">
         <p id="time">00:00</p>
+    </div>
+    <div class="greeting">
+        <p id="greeting"></p>
     </div>
     <div class="searchbox">
         <img src="raghav_logo_pfp.png" alt="" class="logo" loading="lazy">
@@ -173,7 +207,7 @@
         <div class="linkbox" id="linkbox"></div>
     </div>
     <script>
-
+        document.getElementById('greeting').innerText = getGreeting();
         document.getElementById('searchbar').focus();
 
         let misc_html = `
@@ -245,6 +279,24 @@
         let calendar = document.getElementById("calendar");
         function toggle_calendar(){
             calendar.classList.toggle("displayoff");
+        }
+
+        function getGreeting() {
+            const hour = new Date().getHours();
+            let greeting;
+
+            if (hour >= 5 && hour < 12) {
+                greeting = 'Good Morning';
+                document.body.style.backgroundImage = "url('dlc_morning.jpeg')";
+            } else if (hour >= 12 && hour < 17) {
+                greeting = 'Good Afternoon';
+                document.body.style.backgroundImage = "url('dlc_afternoon.jpeg')";
+            } else {
+                greeting = 'Good Evening';
+                document.body.style.backgroundImage = "url('cerulean_coast.jpeg')";
+            }
+
+            return `${greeting}, Raghav`;
         }
 
         let searchbar = document.getElementById("searchbar");
