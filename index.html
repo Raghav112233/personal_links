@@ -19,9 +19,12 @@
         body{
             height: 100dvh;
             overflow-y: hidden;
-            background-image: url('cerulean_coast.jpeg');
+            background-image: none;
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(3px);
+            transition: background-image 0.2s;
         }
         .back_img{
             position: fixed;
@@ -210,6 +213,25 @@
         document.getElementById('greeting').innerText = getGreeting();
         document.getElementById('searchbar').focus();
 
+        window.addEventListener("load", () => {
+            const highRes = new Image();
+            let time_str = getGreeting();
+            if (time_str == 'Good Morning, Raghav'){
+                highRes.src = "dlc_morning.jpeg";
+            }  
+            else if(time_str == 'Good Afternoon, Raghav'){
+                highRes.src = "dlc_afternoon.jpeg";
+            }
+            else{
+                highRes.src = "cerulean_coast.jpeg";
+            }
+
+            highRes.onload = () => {
+                document.body.style.backgroundImage = `url('${highRes.src}')`;
+                document.body.style.backdropFilter = "initial";
+            };
+        });
+
         let misc_html = `
             <div class="linkbox_content_box">
                 <a class="link" href="https://www.youtube.com/">Youtube (Y)</a>
@@ -287,13 +309,13 @@
 
             if (hour >= 5 && hour < 12) {
                 greeting = 'Good Morning';
-                document.body.style.backgroundImage = "url('dlc_morning.jpeg')";
+                document.body.style.backgroundImage = "url('dlc_morning_small.jpeg')";
             } else if (hour >= 12 && hour < 17) {
                 greeting = 'Good Afternoon';
-                document.body.style.backgroundImage = "url('dlc_afternoon.jpeg')";
+                document.body.style.backgroundImage = "url('dlc_afternoon_small.jpeg')";
             } else {
                 greeting = 'Good Evening';
-                document.body.style.backgroundImage = "url('cerulean_coast.jpeg')";
+                document.body.style.backgroundImage = "url('cerulean_coast_small.jpeg')"; 
             }
 
             return `${greeting}, Raghav`;
