@@ -232,38 +232,17 @@
             };
         });
 
-        let misc_html = `
-            <div class="linkbox_content_box">
-                <a class="link" href="https://www.youtube.com/">Youtube (Y)</a>
-                <a class="link" href="https://www.reddit.com/">Reddit</a>
-                <a class="link" href="https://mail.google.com/mail/u/0/#inbox">Mail (R)</a>
-                <a class="link" href="https://drive.google.com/drive/my-drive">Drive</a>
-                <a class="link" href="https://chatgpt.com/">ChatGPT (C)</a>
-                <a class="link" href="https://movierr.online/">Movierr</a>
-                <a class="link" href="https://en.myflixer-official.lol/movies">MyFlixer</a>
-                <a class="link" href="https://steamunlocked.net/">SteamUnlocked</a>
-                <a class="link" href="https://repack-games.com/">Repack-Games</a>
-                <a class="link" href="https://fitgirl-repacks.site/">FitGirl-Repacks</a>
-            </div>
-        `;
+        let misc_html = '';
+        let uni_html = '';
+        let work_html = '';
 
-        let uni_html = `
-            <div class="linkbox_content_box">
-                <a class="link" href="https://vtop.vit.ac.in/vtop/login">VTOP (V)</a>
-                <a class="link" href="https://mail.google.com/mail/u/1/#inbox">VIT Mail (M)</a>
-                <a class="link" href="https://moovitol.vit.ac.in/login/?lang=en">VIT Moovitol</a>
-                <a class="link" href="https://moovit.vit.ac.in/login/?lang=en">VIT Moovit</a>
-            </div>
-        `;
-
-        let work_html = `
-            <div class="linkbox_content_box">
-                <a class="link" href="https://drive.google.com/file/d/15DyepTvXTSwMiQ12kIqrLh4oSF3N1dhb/view?usp=sharing">Resume</a>
-                <a class="link" href="https://docs.google.com/forms/u/0/?tgif=d&ec=asw-forms-globalnav-goto">Forms</a>
-                <a class="link" href="https://raghav112233.github.io/">Raghav Portfolio</a>
-                <a class="link" href="https://www.ilovepdf.com/compress_pdf">Compress Pdf</a>
-            </div>
-        `;
+        fetch('links.json')
+        .then(res => res.json())
+        .then(data => {
+            misc_html = `<div class="linkbox_content_box">${data.misc.map(link => `<a class="link" href="${link.href}">${link.title}</a>`).join('')}</div>`;
+            uni_html = `<div class="linkbox_content_box">${data.uni.map(link => `<a class="link" href="${link.href}">${link.title}</a>`).join('')}</div>`;
+            work_html = `<div class="linkbox_content_box">${data.work.map(link => `<a class="link" href="${link.href}">${link.title}</a>`).join('')}</div>`;
+        });
 
         let time = document.getElementById("time");
         let str = "";
