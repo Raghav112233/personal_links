@@ -310,9 +310,10 @@
         function search(){
             const searchbar_val = document.getElementById("searchbar").value.trim();
 
-            if (searchbar_val.contains('.')){
-                searchbar_val = 'http://' + searchbar_val;
-                window.location.href = searchbar_val;
+            if (searchbar_val.includes('.')){
+                const searchUrl = 'http://' + searchbar_val;
+                window.location.href = searchUrl;
+                console.log(searchUrl);
             }
 
             else if (searchbar_val.startsWith('y ')){
