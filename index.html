@@ -309,19 +309,12 @@
 
         function search(){
             const searchbar_val = document.getElementById("searchbar").value.trim();
-            const urlPattern = new RegExp('^(https?:\\/\\/)?' +
-                '((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.)+[a-zA-Z]{2,}|' +
-                '((\\d{1,3}\\.){3}\\d{1,3}))' +
-                '(\\:\\d+)?(\\/[-a-zA-Z\\d%@_.~+&:]*)*' +
-                '(\\?[;&a-zA-Z\\d%@_.,~+&:=-]*)?' +
-                '(\\#[-a-zA-Z\\d_]*)?$','i');
 
-            if (urlPattern.test(searchbar_val)) {
-                if (!/^https?:\/\//i.test(searchbar_val)) {
-                    searchbar_val = 'http://' + searchbar_val;
-                }
+            if (searchbar_val.contains('.')){
+                searchbar_val = 'http://' + searchbar_val;
                 window.location.href = searchbar_val;
             }
+
             else if (searchbar_val.startsWith('y ')){
                 const searchUrl = 'https://www.youtube.com/results?search_query=' + searchbar_val.trim().replace(/\s+/g, "+").substring(2);
                 window.location.href = searchUrl;
