@@ -1,15 +1,16 @@
 {
   "misc": [
     { "title": "Youtube (Y)", "href": "https://www.youtube.com/" },
+    { "title": "Twitch", "href": "https://www.twitch.tv/" },
     { "title": "Reddit", "href": "https://www.reddit.com/" },
     { "title": "Mail (R)", "href": "https://mail.google.com/mail/u/0/#inbox" },
     { "title": "Drive", "href": "https://drive.google.com/drive/my-drive" },
     { "title": "ChatGPT (C)", "href": "https://chatgpt.com/" },
-    { "title": "Movierr", "href": "https://movierr.online/" },
-    { "title": "MyFlixer", "href": "https://en.myflixer-official.lol/movies" },
+    { "title": "OmegleMe", "href": "https://omegleapp.me/" },
     { "title": "SteamUnlocked", "href": "https://steamunlocked.net/" },
     { "title": "Repack-Games", "href": "https://repack-games.com/" },
-    { "title": "FitGirl-Repacks", "href": "https://fitgirl-repacks.site/" }
+    { "title": "FitGirl-Repacks", "href": "https://fitgirl-repacks.site/" },
+    { "title": "Steamrip", "href": "https://steamrip.com/" }
   ],
   "uni": [
     { "title": "VTOP (V)", "href": "https://vtop.vit.ac.in/vtop/login" },
@@ -18,7 +19,7 @@
     { "title": "VIT Moovit", "href": "https://moovit.vit.ac.in/login/?lang=en" }
   ],
   "work": [
-    { "title": "Resume", "href": "https://drive.google.com/file/d/15DyepTvXTSwMiQ12kIqrLh4oSF3N1dhb/view?usp=sharing" },
-    { "title": "Raghav Portfolio", "href": "https://raghav112233.github.io/" }
+    { "title": "Raghav Portfolio", "href": "https://raghav112233.github.io/" },
+    { "title": "Coursera", "href": "https://www.coursera.org/" }
   ]
 }
