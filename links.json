@@ -20,6 +20,7 @@
   ],
   "work": [
     { "title": "Raghav Portfolio", "href": "https://raghav112233.github.io/" },
-    { "title": "Coursera", "href": "https://www.coursera.org/" }
+    { "title": "Coursera", "href": "https://www.coursera.org/" },
+    { "title" : "Oracle AI Course", "href": "https://mylearn.oracle.com/ou/learning-path/become-an-oci-generative-ai-professional-2025/147863" }
   ]
 }
